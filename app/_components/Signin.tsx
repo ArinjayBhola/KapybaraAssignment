@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import jwt from "jsonwebtoken";
+import Image from "next/image";
 
 const Signin = () => {
   const [data, setData] = useState({
@@ -100,12 +101,14 @@ const Signin = () => {
             </div>
           </div>
         </div>
-        <div className="invisible lg:visible">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae ullam corrupti consequatur molestias
-            temporibus deleniti nostrum officiis sapiente! Quo harum quasi tempore asperiores vero eum obcaecati impedit
-            aliquid. Provident, cum?
-          </p>
+        <div className="invisible sm:visible flex items-center">
+          <Image
+            src={"/image.png"}
+            alt=""
+            width={500}
+            height={500}
+            className="w-full"
+          />
         </div>
       </div>
       <ToastContainer />
