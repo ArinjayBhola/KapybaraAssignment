@@ -31,7 +31,7 @@ const Signup = () => {
         email: data.email,
         password: data.password,
       });
-      const id = response.data.newUser.id;
+      const id = response.data.newUser[0].id;
       const token = jwt.sign({ id }, "Secret");
       localStorage.setItem("token", token);
       router.push("/");
