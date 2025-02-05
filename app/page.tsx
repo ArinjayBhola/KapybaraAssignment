@@ -6,7 +6,6 @@ export default function Home() {
   return (
     <div className="flex">
       <Sidebar />
-
       <div className="flex flex-col">
         <Header />
         <CardContainer />

@@ -1,12 +1,23 @@
 "use client";
 
 import useColorSearch from "@/store/useColorSearch";
+import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 const Header = () => {
   const [activeColor, setActiveColor] = useState("bg-gray-500");
+  const router = useRouter();
 
   const selectedIntialColor = useColorSearch((state) => state.selectedIntialColor);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      router.push("/sign-in");
+      toast("Please login to access your notes", { type: "error" });
+    }
+  }, [router]);
 
   useEffect(() => {
     selectedIntialColor(activeColor);
@@ -22,7 +33,7 @@ const Header = () => {
   ];
 
   return (
-    <div className="flex p-4 gap-4 mx-8">
+    <div className="flex flex-wrap p-4 gap-4 mx-8 justify-between md:justify-start md:flex-row items-center">
       {colors.map((color) => {
         return (
           <p
@@ -37,6 +48,15 @@ const Header = () => {
           </p>
         );
       })}
+      <button
+        className="px-6 py-2 rounded-lg cursor-pointer text-white hover:bg-red-500 bg-red-400 transition duration-500"
+        onClick={() => {
+          localStorage.removeItem("token");
+          router.push("/sign-in");
+        }}
+        type="button">
+        Logout
+      </button>
     </div>
   );
 };

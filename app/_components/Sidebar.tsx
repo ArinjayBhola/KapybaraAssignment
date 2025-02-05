@@ -19,8 +19,8 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="flex flex-col gap-5 border-r border-gray-200 h-screen w-28 sticky top-0 left-0 bg-white">
-      <div className="font-mono font-bold text-2xl m-3 text-center">Dockit</div>
+    <div className="flex flex-col gap-5 border-r border-gray-200 h-screen w-20 md:w-28 sticky top-0 left-0 bg-white">
+      <div className="font-mono font-bold text-2xl m-3 text-center hidden md:block">Dockit</div>
       <div
         onClick={() => setShowIcon(!showIcon)}
         className="bg-black text-white h-10 w-10 mx-auto mt-2 mb-4 flex justify-center items-center rounded-full hover:scale-125 cursor-pointer transition-transform duration-500 ease-in-out">
